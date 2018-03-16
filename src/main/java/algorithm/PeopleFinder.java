@@ -9,13 +9,13 @@ public class PeopleFinder {
 		People = p;
 	}
 
-	public PeopleFound Find(FinderType finderType) {
+	public PersonMatch Find(FinderType finderType) {
 
-		List<PeopleFound> tr = new ArrayList<PeopleFound>();
+		List<PersonMatch> peopleMatched = new ArrayList<PersonMatch>();
 
 		for (int i = 0; i < People.size() - 1; i++) {
 			for (int j = i + 1; j < People.size(); j++) {
-				PeopleFound r = new PeopleFound();
+				PersonMatch r = new PersonMatch();
 				if (People.get(i).birthDate.getTime() < People.get(j).birthDate.getTime()) {
 					r.Person1 = People.get(i);
 					r.Person2 = People.get(j);
@@ -24,16 +24,16 @@ public class PeopleFinder {
 					r.Person2 = People.get(i);
 				}
 				r.AgeDifference = r.Person2.birthDate.getTime() - r.Person1.birthDate.getTime();
-				tr.add(r);
+				peopleMatched.add(r);
 			}
 		}
 
-		if (tr.size() < 1) {
-			return new PeopleFound();
+		if (peopleMatched.size() < 1) {
+			return new PersonMatch();
 		}
 
-		PeopleFound answer = tr.get(0);
-		for (PeopleFound result : tr) {
+		PersonMatch answer = peopleMatched.get(0);
+		for (PersonMatch result : peopleMatched) {
 			switch (finderType) {
 				case CLOSEST_AGE_DIFFERENCE:
 					if (result.AgeDifference < answer.AgeDifference) {

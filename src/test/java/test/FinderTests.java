@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algorithm.PeopleFound;
+import algorithm.PersonMatch;
 import algorithm.FinderType;
 import algorithm.PeopleFinder;
 import algorithm.Person;
@@ -38,7 +38,7 @@ public class FinderTests {
         List<Person> personList = new ArrayList<Person>();
         PeopleFinder peopleFinder = new PeopleFinder(personList);
 
-        PeopleFound result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
+        PersonMatch result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
         assertEquals(null, result.Person1);
 
         assertEquals(null, result.Person2);
@@ -51,7 +51,7 @@ public class FinderTests {
 
         PeopleFinder peopleFinder = new PeopleFinder(list);
 
-        PeopleFound result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
+        PersonMatch result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
 
         assertEquals(null, result.Person1);
         assertEquals(null, result.Person2);
@@ -64,7 +64,7 @@ public class FinderTests {
         list.add(greg);
         PeopleFinder peopleFinder = new PeopleFinder(list);
 
-        PeopleFound result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
+        PersonMatch result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
 
         assertEquals(sue, result.Person1);
         assertEquals(greg, result.Person2);
@@ -78,7 +78,7 @@ public class FinderTests {
 
         PeopleFinder peopleFinder = new PeopleFinder(list);
 
-        PeopleFound result = peopleFinder.Find(FinderType.FURTHEST_AGE_DIFFERENCE);
+        PersonMatch result = peopleFinder.Find(FinderType.FURTHEST_AGE_DIFFERENCE);
 
         assertEquals(greg, result.Person1);
         assertEquals(mike, result.Person2);
@@ -93,7 +93,7 @@ public class FinderTests {
         list.add(greg);
         PeopleFinder peopleFinder = new PeopleFinder(list);
 
-        PeopleFound result = peopleFinder.Find(FinderType.FURTHEST_AGE_DIFFERENCE);
+        PersonMatch result = peopleFinder.Find(FinderType.FURTHEST_AGE_DIFFERENCE);
 
         assertEquals(sue, result.Person1);
         assertEquals(sarah, result.Person2);
@@ -109,7 +109,7 @@ public class FinderTests {
 
         PeopleFinder peopleFinder = new PeopleFinder(list);
 
-        PeopleFound result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
+        PersonMatch result = peopleFinder.Find(FinderType.CLOSEST_AGE_DIFFERENCE);
 
         assertEquals(sue, result.Person1);
         assertEquals(greg, result.Person2);
